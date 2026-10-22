@@ -6,6 +6,8 @@ import { LocationsModule } from './locations/locations.module';
 import { User } from './users/user.entity';
 import { Location } from './locations/location.entity';
 import { SeedService } from './seed.service';
+import { Inspection } from './inspections/inspection.entity';
+import { InspectionsModule } from './inspections/inspections.module';
 
 @Module({
   imports: [
@@ -16,13 +18,14 @@ import { SeedService } from './seed.service';
       username: process.env.DB_USER || 'assessment',
       password: process.env.DB_PASSWORD || 'assessment',
       database: process.env.DB_NAME || 'assessment',
-      entities: [User, Location],
+      entities: [User, Location, Inspection],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([User, Location]),
     AuthModule,
     UsersModule,
     LocationsModule,
+    InspectionsModule,
   ],
   providers: [SeedService],
 })

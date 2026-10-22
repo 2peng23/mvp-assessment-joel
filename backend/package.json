@@ -6,6 +6,7 @@
     "dev": "nest start --watch",
     "start": "nest start",
     "build": "nest build",
+    "test": "nest build && node --test test/inspections.service.test.js",
     "lint": "eslint \"src/**/*.ts\""
   },
   "dependencies": {
